@@ -87,6 +87,8 @@ class LineChart extends Component {
     			}
 			  }
       });
+    } else if(this.lineChart) {
+      this.lineChart.destroy();
     }
   }
 

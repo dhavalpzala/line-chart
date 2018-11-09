@@ -104,6 +104,18 @@ class Home extends Component {
     }
   }
 
+  remove() {
+    document.querySelector("#fileInput").value = "";
+
+    this.setState({
+      series: [],
+      minYear: undefined,
+      maxYear: undefined,
+      fileName: '',
+      rowData: []
+    });
+  }
+
   onGridReady(params) {
    this.gridApi = params.api;
    this.gridApi.sizeColumnsToFit();
@@ -135,9 +147,12 @@ class Home extends Component {
         <div>
           <div className="browse-container">
             <button className="browse-button">Browse</button>
-            <input type="file" onChange={this.onFileChage.bind(this)} />
+            <input id="fileInput" type="file" onChange={this.onFileChage.bind(this)} />
           </div>
           <label>{ fileName }</label>
+          {
+            fileName ? <button className="remove-button" onClick={this.remove.bind(this)}>X</button> : null
+          }
         </div>
         <div className="chart-data-container">
           { this.renderData() }
