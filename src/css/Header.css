@@ -1,0 +1,9 @@
+header {
+  background: #426CDF;
+  color: white;
+  padding: 8px 15px;
+}
+
+.app-title {
+  font-size: 25px;
+}
