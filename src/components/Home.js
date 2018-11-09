@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import '../css/Home.css';
 import LineChart from './LineChart';
+import { uploadData } from '../actions/app.actions';
 
 class Home extends Component {
   constructor () {
@@ -93,6 +94,9 @@ class Home extends Component {
 
           // reset columns width
           this.gridApi.sizeColumnsToFit();
+
+          // upload data
+          uploadData(seriesData);
         }
 
         reader.readAsText(files[0]);
